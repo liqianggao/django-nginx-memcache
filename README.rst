@@ -206,3 +206,10 @@ Running Tests
 To run the tests::
 
     python manage.py test nginx_memcache
+    
+Build failed with "undefined reference to 'pcre_free_study'"
+=============
+http://trac.nginx.org/nginx/ticket/94#comment:9
+
+#. Remove the PCRE version installed into /usr/local and reinstall one from macports. This is recommended solution.
+#. Force /usr/local/lib to be before /usr/lib in library search path with ./configure --with-ld-opt="-L /usr/local/lib". This may work, but likely you'll be facing the same problem in other places as well.
